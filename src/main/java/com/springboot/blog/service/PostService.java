@@ -1,7 +1,6 @@
 package com.springboot.blog.service;
 
 import com.springboot.blog.payload.PostDto;
-import jakarta.persistence.Id;
 
 import java.util.List;
 
