@@ -1,0 +1,18 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PostServiceTest.test_getPostById" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+    <module name="springboot-blog-rest-api" />
+    <extension name="coverage" track_test_folders="true">
+      <pattern>
+        <option name="PATTERN" value="com.springboot.blog.Service.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <option name="PACKAGE_NAME" value="com.springboot.blog.Service" />
+    <option name="MAIN_CLASS_NAME" value="com.springboot.blog.Service.PostServiceTest" />
+    <option name="METHOD_NAME" value="test_getPostById" />
+    <option name="TEST_OBJECT" value="method" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
