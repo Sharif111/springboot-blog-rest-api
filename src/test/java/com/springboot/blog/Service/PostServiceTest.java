@@ -1,7 +1,9 @@
 package com.springboot.blog.Service;
 
 import com.springboot.blog.entity.Post;
+import com.springboot.blog.payload.PostDto;
 import com.springboot.blog.repository.PostRepository;
+import com.springboot.blog.service.PostService;
 import com.springboot.blog.service.impl.PostServiceImpl;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -14,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -24,6 +27,33 @@ public class PostServiceTest {
 
     @InjectMocks
     PostServiceImpl postServiceImpl;
+
+
+
+    @Test
+    @Order(1)
+    public void test_createPost(){
+        // Given
+        PostDto postDto = new PostDto();
+        postDto.setTitle("Test Post");
+        postDto.setDescription("Test Post Description");
+        postDto.setContent("Test Post Content");
+
+        Post savedPost = new Post(1L, "Test Post", "Test Post Description", "Test Post Content");
+
+        // Mock the behavior of the postRepository.save() method
+        when(postRepository.save(any(Post.class))).thenReturn(savedPost);
+
+        // When
+        PostDto createdPost = postServiceImpl.createPost(postDto);
+
+        // Then
+        assertEquals(postDto.getTitle(), createdPost.getTitle());
+        assertEquals(postDto.getDescription(), createdPost.getDescription());
+        assertEquals(postDto.getContent(), createdPost.getContent());
+    }
+
+
 
     @Test
     @Order(2)
